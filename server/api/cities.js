@@ -1,8 +1,10 @@
 const express = require('express')
 var router = express.Router()
 const client = require('../db')
-const collectionName = 'cities';
-const uuid = require('uuid')
+const uuid = require('uuid');
+const axios = require('axios')
+
+const collectionName = process.env.COLLECTION;
 
 //Get all cities
 router.get('/cities', async (req, res) => {

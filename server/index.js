@@ -1,11 +1,13 @@
+require('dotenv').config()
 const express = require('express')
 const app = express()
 bodyParser = require('body-parser');
 app.use(bodyParser.json());
 const client = require("./db")
-const port = 3000
+const port = process.env.PORT
+
 //Fichier contenant les routes pour mes requétes
-const citiesRoutes = require('./api/app.js')
+const citiesRoutes = require('./api/cities.js')
 
 app.get('/', (req, res) => {
     res.send('Hello World!')
