@@ -4,7 +4,9 @@ function kelvinToCelcius(kelvin) {
 }
 
 function transformKelvin(object, keys) {
+    //Iterate on every element of the list
     object.data.list.forEach(element => {
+        //Iterate on corresponding keys
         keys.forEach(key => {
             element.main[key] = kelvinToCelcius(element.main[key])
         });

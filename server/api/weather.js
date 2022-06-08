@@ -12,7 +12,7 @@ const key = process.env.OPENWEATHERKEY;
 router.get('/:city', async (req, res) => {
     console.log("get weather for", req.params.city)
     let weather = await axios.get(url, { params: { 'q': req.params.city, 'appid': key } })
-    //Converti les champs selctionnés de kelvin à celcius
+    //Converts selecteds kelvin values into celcius
     utils.transformKelvin(weather, ["temp", 'feels_like', 'temp_min', 'temp_max'])
     res.send(weather.data)
 })
