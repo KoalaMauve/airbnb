@@ -8,6 +8,7 @@ const port = process.env.PORT
 
 //Fichier contenant les routes pour mes requétes
 const citiesRoutes = require('./api/cities.js')
+const weatherRoutes = require('./api/weather.js')
 
 app.get('/', (req, res) => {
     res.send('Hello World!')
@@ -16,6 +17,7 @@ app.get('/', (req, res) => {
 client.connect().then(() => console.log("Connected to Mongo!"));
 
 app.use("/api", citiesRoutes)
+app.use("/api/weather", weatherRoutes)
 
 
 app.listen(port, () => {
