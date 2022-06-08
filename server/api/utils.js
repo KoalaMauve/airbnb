@@ -1,5 +1,5 @@
 function kelvin(kelvin) {
-    celcius = kelvin - 273.15
+    celcius = parseInt((kelvin - 273.15).toFixed(0), 10)
     return celcius
 }
 
