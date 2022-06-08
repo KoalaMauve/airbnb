@@ -4,8 +4,9 @@ import Ville from './containers/Ville';
 import ModifListe from './containers/Modif_Liste';
 
 export default function App() {
-  const [listeVilles, setListeVilles] = useState([]);
-  const [ville, setville] = useState([])
+  const [ListeVilles, setListeVilles] = useState([]);
+  const [Temps, setTemps] = useState([]);
+  const [Degres, setDegres] = useState([]);
 
   useEffect(() => {
     // faire une requete avec axios.get
@@ -15,15 +16,35 @@ export default function App() {
       "Paris",
       "Bordeaux"
     ])
+    setTemps([
+      "Nuageux",
+      "Ensoleillé",
+      "Pluie"
+    ])
+    setDegres([
+      "12°C",
+      "16°C",
+      "27°C"
+    ])
   }, [])
   return (
     <div>
       {
-        listeVilles.map((ville) => {
+        ListeVilles.map((ville) => {
           return <Ville city={ville}></Ville>
         })
       }
-      < ModifListe listeVilles={listeVilles}></ModifListe>
+      {
+        Temps.map((Temps) => {
+          return <Ville weather={Temps}></Ville>
+        })
+      }
+      {
+        Degres.map((Degres) => {
+          return <Ville heat={Degres}></Ville>
+        })
+      }
+      < ModifListe ListeVilles={ListeVilles}></ModifListe>
     </div >
   )
 }
