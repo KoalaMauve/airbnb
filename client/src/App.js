@@ -4,10 +4,26 @@ import Ville from './containers/Ville';
 import ModifListe from './containers/Modif_Liste';
 
 export default function App() {
-  const [listev, setlistev] = useState([]);
+  const [listeVilles, setListeVilles] = useState([]);
+  const [ville, setville] = useState([])
+
+  useEffect(() => {
+    // faire une requete avec axios.get
+    // sur le point d'API de Gabriel
+    setListeVilles([
+      "Annecy",
+      "Paris",
+      "Bordeaux"
+    ])
+  }, [])
   return (
     <div>
-      <><Ville listev={listev}></Ville><ModifListe></ModifListe></>
-    </div>
+      {
+        listeVilles.map((ville) => {
+          return <Ville city={ville}></Ville>
+        })
+      }
+      < ModifListe listeVilles={listeVilles}></ModifListe>
+    </div >
   )
 }

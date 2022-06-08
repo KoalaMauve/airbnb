@@ -1,23 +1,17 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 function ModifListe(props) {
-    function Plus() {
-        const copy = [...props.listev]
+
+    function Plus(props) {
+        const copy = [...props.ListeVilles]
         copy[props.index] += 1
         props.listev(copy)
+        return (
+            <>
+                <div>
+                    <button onClick={Plus}>+</button>
+                </div>
+            </>
+        )
     }
-    function Supprimer() {
-        const copy = [...props.listev]
-        copy.splice(props.index, 1)
-        props.listev(copy)
-    }
-    return (
-        <>
-            <div>
-                {props.ville}
-                <button onClick={Plus}>+</button>
-                <button onClick={Supprimer}>-</button>
-            </div>
-        </>
-    )
 }
 export default ModifListe;
