@@ -11,10 +11,14 @@ const key = process.env.OPENWEATHERKEY;
 
 router.get('/:city', async (req, res) => {
     console.log("get weather for", req.params.city)
-    let weather = await axios.get(url, { params: { 'q': req.params.city, 'appid': key } })
-    //Converts selecteds kelvin values into celcius
-    utils.transformKelvin(weather, ["temp", 'feels_like', 'temp_min', 'temp_max'])
-    res.send(weather.data)
+    try {
+        let weather = await axios.get(url, { params: { 'q': req.params.city, 'appid': key } })
+        //Converts selecteds kelvin values into celcius
+        utils.transformKelvin(weather, ["temp", 'feels_like', 'temp_min', 'temp_max'])
+        res.send(weather.data)
+
+    }
+    catch (error) { res.status(418).send(error.response.data.message) }
 })
 
 module.exports = router;
