@@ -3,6 +3,7 @@ import React, { useEffect, useState } from 'react';
 import Ville from './containers/Ville';
 import ModifListe from './containers/Modif_Liste';
 import axios from 'axios';
+import AddCity from './containers/add-city';
 
 export default function App() {
   //Définition des variables
@@ -55,6 +56,7 @@ export default function App() {
           return <Ville heat={Degres}></Ville>
         })
       }
+      <AddCity></AddCity>
       < ModifListe ListeVilles={ListeVilles}></ModifListe>
     </div >
   )
