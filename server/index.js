@@ -8,7 +8,7 @@ const port = process.env.PORT
 const cors = require('cors')
 app.use(cors())
 
-//Fichier contenant les routes pour mes requétes
+//Fichier contenant les routes pour mes requêtes
 const citiesRoutes = require('./api/cities.js')
 const weatherRoutes = require('./api/weather.js')
 
