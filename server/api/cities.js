@@ -23,14 +23,17 @@ router.get('/cities/:id', async (req, res) => {
 router.post('/cities', async (req, res) => {
     const { name } = req.body
 
-    let insert = await client.db().collection(collectionName).insertOne(
-        {
-            "_id": uuid.v4(), "name": name
-        }
-    )
-    console.log(insert)
-    res.send(JSON.stringify(insert))
-
+    if (name != null) {
+        let insert = await client.db().collection(collectionName).insertOne(
+            {
+                "_id": uuid.v4(), "name": name
+            }
+        )
+        res.send(JSON.stringify(insert))
+    }
+    else {
+        res.status(418).send("null is not a correct name for a city")
+    }
 })
 
 //Edit a city by id
