@@ -16,7 +16,6 @@ router.get('/cities', async (req, res) => {
 router.get('/cities/:id', async (req, res) => {
     console.log("get on", req.params.id)
     let getCities = await client.db().collection(collectionName).find({ "_id": req.params.id }).toArray()
-    res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept")
     res.send(getCities);
 })
 
