@@ -1,0 +1,22 @@
+.temp-container {
+    display: flex;
+    flex-direction: row;
+}
+
+.details-container {
+    display: flex;
+    flex-direction: column;
+}
+
+.city {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    align-self: center;
+}
+
+.temp::after {
+    content: ', ';
+}
+
+.hidden {
+    display: none;
+}

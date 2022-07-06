@@ -1,3 +1,4 @@
+import './Ville.css';
 import axios from 'axios';
 import React from 'react';
 import { useEffect } from 'react';
@@ -13,18 +14,26 @@ function Ville(props) {
         }
         getWeather()
     }, [])
+
+    function toggleHidden(id) {
+        document.getElementById(id).classList.toggle('hidden')
+    }
+
     return (
-        <border>
-            <center>{props.city.name}</center>
-            {Temps && (
-                Temps.list.map((item) => {
-                    return (
-                        <div>
-                            <center>
+        <div className='details-container'>
+            <div className='city' onClick={() => { toggleHidden(props.city._id) }}>
+                {props.city.name}
+            </div>
+            <div className={'temp-container'} id={props.city._id}>
+                {Temps && (
+                    Temps.list.map((item, index) => {
+                        console.log(index)
+                        return (
+                            <div>
                                 <div class="temp">
                                     {item.main.temp}
                                 </div>
-                                <div class="date">
+                                {/* <div class="date">
                                     {item.dt_txt}
                                 </div>
                                 <div class="t_max">
@@ -38,15 +47,15 @@ function Ville(props) {
                                 </div>
                                 <div class="humidity">
                                     {item.main.humidity}
-                                </div>
-                            </center>
-                        </div>
+                                </div> */}
+                            </div>
+                        )
+                    }
                     )
-                }
                 )
-            )
-            }
-        </border >
+                }
+            </div>
+        </div>
     )
 
 }
