@@ -9,7 +9,6 @@ function AddCity(props) {
         let city = document.querySelector('.input').value
         let res = await axios.post(url, { name: city })
         console.log(res.data)
-        getAllCities()
     }
     return (
         <>
