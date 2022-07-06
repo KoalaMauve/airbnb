@@ -23,7 +23,7 @@ router.get('/cities/:id', async (req, res) => {
 router.post('/cities', async (req, res) => {
     const { name } = req.body
 
-    if (name != null) {
+    if (name != null && name != "") {
         let insert = await client.db().collection(collectionName).insertOne(
             {
                 "_id": uuid.v4(), "name": name

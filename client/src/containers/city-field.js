@@ -4,7 +4,7 @@ function CityField(props) {
     return (
         <>
             <div>
-                <input type={text} size={10}></input>
+                <input className='input'></input>
             </div>
         </>
     )
