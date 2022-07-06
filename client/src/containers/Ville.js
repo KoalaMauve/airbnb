@@ -3,7 +3,6 @@ import React from 'react';
 import { useEffect } from 'react';
 import { useState } from 'react';
 function Ville(props) {
-    console.log(props.city)
     const [Temps, setTemps] = useState(null);
 
     useEffect(() => {
@@ -21,12 +20,26 @@ function Ville(props) {
                 Temps.list.map((item) => {
                     return (
                         <div>
-                            {item.main.temp}
-                            {item.dt_txt}
-                            {item.main.temp_max}
-                            {item.main.temp_min}
-                            {item.main.feels_like}
-                            {item.main.humidity}
+                            <center>
+                                <div class="temp">
+                                    {item.main.temp}
+                                </div>
+                                <div class="date">
+                                    {item.dt_txt}
+                                </div>
+                                <div class="t_max">
+                                    {item.main.temp_max}
+                                </div>
+                                <div class="t_min">
+                                    {item.main.temp_min}
+                                </div>
+                                <div class="feels">
+                                    {item.main.feels_like}
+                                </div>
+                                <div class="humidity">
+                                    {item.main.humidity}
+                                </div>
+                            </center>
                         </div>
                     )
                 }
