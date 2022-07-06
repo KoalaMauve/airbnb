@@ -4,6 +4,7 @@ import Ville from './containers/Ville';
 import axios from 'axios';
 import CityField from './containers/city-field';
 import AddCity from './containers/add-city';
+import DeleteAll from './containers/deleteAll';
 
 const citiesUrl = 'http://localhost:9090/api/cities/'
 
@@ -25,6 +26,7 @@ export default function App() {
 
   return (
     <div>
+      <DeleteAll updateCities={getCities}></DeleteAll>
       <div>Add a new city to ur dashboard</div>
       <div className='newCity'><AddCity updateCities={getCities}></AddCity><CityField></CityField></div>
       {
