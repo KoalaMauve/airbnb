@@ -22,19 +22,19 @@ export default function App() {
     async function getCities() {
       var response = await axios.get('http://localhost:9090/api/cities')
       setListeVilles(response.data)
+      console.log('data', response.data)
     }
     getCities()
   }, [])
 
   return (
     <div>
+      <div className='newCity'><AddCity></AddCity><CityField></CityField></div>
       {
         ListeVilles.map((ville) => {
-          return <Ville city={ville}></Ville>
+          return <Ville className={ville._id} city={ville} ></Ville>
         })
       }
-      <div className='newCity'><AddCity></AddCity><CityField></CityField></div>
-      < ModifListe ListeVilles={ListeVilles}></ModifListe>
     </div >
   )
 }
