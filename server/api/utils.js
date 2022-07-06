@@ -17,5 +17,4 @@ function transformKelvin(object, keys) {
 module.exports = {
     kelvinToCelcius,
     transformKelvin,
-    countUntilMidnight
 };
