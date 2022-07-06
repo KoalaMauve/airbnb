@@ -70,7 +70,7 @@ function Ville(props) {
                 )
                 }
             </div>
-        </div>
+        </div >
     )
 
 }
