@@ -11,6 +11,7 @@ function Ville(props) {
         async function getWeather() {
             var response = await axios.get('http://localhost:9090/api/weather/' + props.city.name)
             setTemps(response.data)
+            console.log(response.data)
         }
         getWeather()
     }, [])
@@ -19,37 +20,49 @@ function Ville(props) {
         document.getElementById(id).classList.toggle('hidden')
     }
 
+    async function deleteCity(id) {
+        axios.delete('http://localhost:9090/api/cities/' + props.city._id)
+    }
+
     return (
         <div className='details-container'>
-            <div className='city' onClick={() => { toggleHidden(props.city._id) }}>
-                {props.city.name}
+            <div className='header'>
+                <div className='city' onClick={() => { toggleHidden(props.city._id) }}>
+                    {props.city.name}
+                </div>
+                <button onClick={() => { deleteCity(props.city._id) }}>X</button>
             </div>
+
             <div className={'temp-container'} id={props.city._id}>
                 {Temps && (
                     Temps.list.map((item, index) => {
-                        console.log(index)
-                        return (
-                            <div>
-                                <div class="temp">
-                                    {item.main.temp}
+                        var date = new Date
+                        var hoursLefts = 24 - date.getHours()
+                        if (index <= hoursLefts) {
+                            return (
+                                <div>
+                                    <div class="temp">
+                                        {(index + date.getHours() != 24 ? index + date.getHours() : '0') + 'h'} : {item.main.temp}
+                                    </div>
+                                    {/* <div class="date">
+                                        {item.dt_txt}
+                                    </div>
+                                    <div class="t_max">
+                                        {item.main.temp_max}
+                                    </div>
+                                    <div class="t_min">
+                                        {item.main.temp_min}
+                                    </div>
+                                    <div class="feels">
+                                        {item.main.feels_like}
+                                    </div>
+                                    <div class="humidity">
+                                        {item.main.humidity}
+                                    </div> */}
                                 </div>
-                                {/* <div class="date">
-                                    {item.dt_txt}
-                                </div>
-                                <div class="t_max">
-                                    {item.main.temp_max}
-                                </div>
-                                <div class="t_min">
-                                    {item.main.temp_min}
-                                </div>
-                                <div class="feels">
-                                    {item.main.feels_like}
-                                </div>
-                                <div class="humidity">
-                                    {item.main.humidity}
-                                </div> */}
-                            </div>
-                        )
+                            )
+                        }
+                        else return null
                     }
                     )
                 )

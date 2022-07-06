@@ -29,6 +29,7 @@ export default function App() {
 
   return (
     <div>
+      <div>Add a new city to ur dashboard</div>
       <div className='newCity'><AddCity></AddCity><CityField></CityField></div>
       {
         ListeVilles.map((ville) => {
