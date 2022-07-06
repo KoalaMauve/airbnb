@@ -20,8 +20,9 @@ function Ville(props) {
         document.getElementById(id).classList.toggle('hidden')
     }
 
-    async function deleteCity(id) {
+    async function deleteCity() {
         axios.delete('http://localhost:9090/api/cities/' + props.city._id)
+        props.updateCities()
     }
 
     return (
@@ -30,7 +31,7 @@ function Ville(props) {
                 <div className='city' onClick={() => { toggleHidden(props.city._id) }}>
                     {props.city.name}
                 </div>
-                <button onClick={() => { deleteCity(props.city._id) }}>X</button>
+                <button onClick={() => { deleteCity() }}>X</button>
             </div>
 
             <div className={'temp-container'} id={props.city._id}>
