@@ -28,12 +28,13 @@ function Ville(props) {
     return (
         <div className='details-container'>
             <div className='header'>
-                <div className='city' onClick={() => { toggleHidden(props.city._id) }}>
-                    {props.city.name}
-                </div>
-                <button onClick={() => { deleteCity() }}>X</button>
+                <center>
+                    <div className='city' onClick={() => { toggleHidden(props.city._id) }}>
+                        {props.city.name}
+                    </div>
+                    <button onClick={() => { deleteCity() }}>X</button>
+                </center>
             </div>
-
             <div className={'temp-container'} id={props.city._id}>
                 {Temps && (
                     Temps.list.map((item, index) => {

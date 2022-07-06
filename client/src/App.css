@@ -1,11 +1,39 @@
 .newCity {
     display: flex;
 }
+
 body {
     background-color: #e6f1fd;
 }
 
 div {
+    font-family: "Times New Roman", Times, serif;
+    color: #4169e1;
+    font-variant: small-caps;
+    font-size: 18px;
+}
+
+.city {
+    font-family: "Times New Roman", Times, serif;
+    font-weight: 700;
+    font-size: 25px;
+    letter-spacing: 2px;
+    text-decoration: underline solid #4169E1;
+    font-variant: small-caps;
+
+}
+
+.temp {
+    font-family: "Times New Roman", Times, serif;
     font-size: 20px;
+    letter-spacing: 2px;
+    font-variant: small-caps;
+}
+
+button {
+    border: 2px solid #ADD8E6;
+    background-color: #ADD8E6;
+    font-weight: 700;
+    border-radius: 10px;
     color: #4169e1;
 }
